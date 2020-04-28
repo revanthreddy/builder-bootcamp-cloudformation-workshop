@@ -85,7 +85,7 @@ Append the below CloudFormation code to template.yaml to create a custom resouce
       bucket_prefix: !Ref S3BucketPrefix
 ```
 
-### Your final code should look like this
+### Your final code in template.yaml should look like this
 
 ```yaml
 AWSTemplateFormatVersion: "2010-09-09"
