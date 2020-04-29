@@ -28,7 +28,7 @@ $ aws cloudformation deploy --template-file template-output.yaml --stack-name cf
 ## Step.4 Create Lambda function and its role
 
 Append the below CloudFormation code to template.yaml to create a lambda function and an IAM role for it 
-```bash
+```yaml
   RandomBucketNameGeneratorLambda:
     Type: "AWS::Lambda::Function"
     Properties:
@@ -242,7 +242,7 @@ Updating a BucketName on S3 means replacement (read [this](https://docs.aws.amaz
 
 ## Step.8 CLEANUP
 
-* Delete the `cfn-workshop-stack` first from the cloudformation console
+* Delete the `cfn-workshop-stack` from the cloudformation console
 
 ## Resources
 
