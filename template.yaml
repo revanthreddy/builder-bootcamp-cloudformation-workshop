@@ -11,51 +11,6 @@ Parameters:
 Resources:
 
 
-  RandomBucketNameGeneratorLambda:
-    Type: "AWS::Lambda::Function"
-    Properties:
-      Code: lambda_source/
-      FunctionName: 'lambda-to-generate-bucket-name'
-      Description: 'Lambda to generate a random bucket name'
-      Handler: index.handler
-      Role: !GetAtt RandomBucketNameGeneratorLambdaRole.Arn
-      Runtime: python3.7
-      Timeout: 180
-
-  RandomBucketNameGeneratorLambdaRole:
-    Type: AWS::IAM::Role
-    Properties:
-      AssumeRolePolicyDocument:
-        Version: '2012-10-17'
-        Statement:
-          - Effect: Allow
-            Principal:
-              Service: 'lambda.amazonaws.com'
-            Action:
-              - 'sts:AssumeRole'
-      Policies:
-        - PolicyName: 'RandomBucketNameGeneratorLambdaLogPolicy'
-          PolicyDocument:
-            Version: '2012-10-17'
-            Statement:
-              - Effect: 'Allow'
-                Action:
-                  - 'logs:CreateLogGroup'
-                  - 'logs:CreateLogStream'
-                  - 'logs:PutLogEvents'
-                Resource: 'arn:aws:logs:*:*:*'
-
-
-  GenerateBucketName:
-    Type: Custom::NameGenerato
-    Properties:
-      ServiceToken: !GetAtt RandomBucketNameGeneratorLambda.Arn
-      bucket_prefix: !Ref S3BucketPrefix
-
-
-
   WorkshopS3Bucket:
     Type: AWS::S3::Bucket
-    Properties:
-      BucketName: !GetAtt GenerateBucketName.bucket_name
 
