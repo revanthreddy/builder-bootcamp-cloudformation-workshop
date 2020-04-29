@@ -1,6 +1,6 @@
 # CloudFormation Workshop
 
-This repo contains source code and supporting files to do a workshop on CloudFormation. The goal of this workshop is to learn how we can create and use custom resources (backed by AWS Lambda) in CloudFormation and its impact 
+This repo contains source code and supporting files to do a workshop on CloudFormation. The goal of this workshop is to learn how we can create and use custom resources (backed by AWS Lambda) in CloudFormation and its impact on the resources.
 The resources are defined/updated in the `template.yml` file of this repo.
 
 ## Step.1 `CLONE THIS REPO`
